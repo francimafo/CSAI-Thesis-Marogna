@@ -36,3 +36,4 @@ In order to run the DDIB models, run the following line:
 ```commandline
 mpiexec --mca opal_cuda_support 1 python ddib/scripts/CTPET_translation.py
 ```
+Remember to add the various arguments defining what your paths are.
