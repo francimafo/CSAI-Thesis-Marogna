@@ -101,9 +101,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Paths for original images
-    ct_path = '/home/u401763/Data/data_clean/image_ct'
-    label_path = '/home/u401763/Data/data_clean/mask/'
-    pet_path = '/home/u401763/Data/data_clean/image_pet'
-    mask_path = '/home/u401763/Data/data_clean/mask'
+    ct_path = '/path/to/image_ct'
+    label_path = '/path/to/mask/'
+    pet_path = '/path/to/image_pet'
+    mask_path = '/path/to/mask'
 
     final_run_petct(label_path, ct_path, pet_path, mask_path, args.crop_size, args.random_int, args.img_path_pet, args.img_path_ct, args.img_path_mask, args.base_dir)
