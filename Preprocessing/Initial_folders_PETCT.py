@@ -8,7 +8,7 @@ Files are then put in the data_clean folder into image_pet, mask, image_ct folde
 
 def main():
     # Replace this path with the actual path to your data directory
-    DATA = "/home/llong/PET_CT"
+    DATA = "path/to/data"
 
     for scan_folder in os.listdir(DATA):
         if os.path.splitext(scan_folder)[1] == ".csv":
@@ -20,6 +20,7 @@ def main():
 
         for i in range(0, len(scan_files)):
             scans = os.path.join(scan, scan_files[i])
+            # Change this based on what your files are called
             ct = os.path.join(scans, "CTres.nii.gz")
             annot = os.path.join(scans, "SEG.nii.gz")
             pet = os.path.join(scans, "PET.nii.gz")
@@ -30,23 +31,23 @@ def main():
             try:
                 # Move ct
                 if len(scan_files) > 1:
-                    ct_dest = "/home/u401763/data_clean/image_ct/" + id + f"_{i}.nii.gz"
+                    ct_dest = "path/to/image_ct/" + id + f"_{i}.nii.gz"
                 else:
-                    ct_dest = "/home/u401763/data_clean/image_ct/" + id + ".nii.gz"
+                    ct_dest = "path/to/image_ct/" + id + ".nii.gz"
                 shutil.copy(ct, ct_dest)
 
                 # Move annot
                 if len(scan_files) > 1:
-                    annot_dest = "/home/u401763/data_clean/mask/" + id + f"_{i}.nii.gz"
+                    annot_dest = "path/to/mask/" + id + f"_{i}.nii.gz"
                 else:
-                    annot_dest = "/home/u401763/data_clean/mask/" + id + ".nii.gz"
+                    annot_dest = "path/to/mask/" + id + ".nii.gz"
                 shutil.copy(annot, annot_dest)
 
                 # Move pet
                 if len(scan_files) > 1:
-                    pet_dest = "/home/u401763/data_clean/image_pet/" + id + f"_{i}.nii.gz"
+                    pet_dest = "path/to/image_pet/" + id + f"_{i}.nii.gz"
                 else:
-                    pet_dest = "/home/u401763/data_clean/image_pet/" + id + ".nii.gz"
+                    pet_dest = "path/to/image_pet/" + id + ".nii.gz"
                 shutil.copy(pet, pet_dest)
             except Exception as e:
                 print(f"An error occurred: {e}")
